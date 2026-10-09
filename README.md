@@ -9,7 +9,7 @@ cgu.html                   Crime Night : conditions d'utilisation
 confidentialite.html       Crime Night : politique de confidentialité
 suppression-compte.html    Crime Night : suppression de compte
 site.css, site.js          style et script communs à l'accueil, aux applications et aux pages légales de Crime Night
-lang.js                    choix de la langue des pages légales
+lang.js                    choix de la langue, sur toutes les pages
 fonts/                     Lilita One (titres) et Nougat (le nom « Crime Night »), comme dans l'appli
 images/                    yeux, modes, règles, captures et icône de Crime Night, logo de Rep', icônes des stores
 rep/confidentialite.html   Rep' : politique de confidentialité
@@ -26,11 +26,11 @@ Adresses de Rep' (Réglages de l'appli, App Store Connect, Play Console) :
 - https://nightgame.fr/rep/confidentialite.html
 - https://nightgame.fr/rep/suppression-compte.html
 
-## Pages légales en deux langues
+## Deux langues
 
-Les cinq pages légales contiennent le français et l'anglais dans le même fichier, chacun dans une `<section data-l="fr">` ou `<section data-l="en">`. `lang.js` n'en affiche qu'une : le français par défaut, l'anglais avec `?lang=en` (par exemple `https://nightgame.fr/cgu.html?lang=en`) ou avec le bouton FR/EN de la page. Le français fait foi.
+Toutes les pages contiennent le français et l'anglais dans le même fichier : chaque texte existe en deux exemplaires, marqués `data-l="fr"` et `data-l="en"`. `lang.js` n'en affiche qu'un : le français par défaut, l'anglais avec `?lang=en` (par exemple `https://nightgame.fr/cgu.html?lang=en`) ou avec le bouton FR/EN de la barre du haut. Les liens entre les pages du site gardent la langue choisie.
 
-Toute modification d'un texte légal se fait dans les deux sections.
+Toute modification d'un texte se fait dans les deux langues. Pour les pages légales, le français fait foi.
 
 ## Publier
 

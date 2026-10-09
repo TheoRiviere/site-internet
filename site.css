@@ -72,7 +72,10 @@ a { color: inherit; }
 .nav .btn { padding: 7px 16px; font-size: 0.9rem; }
 @media (max-width: 720px) {
   .nav { gap: 14px; }
-  .nav .brand { font-size: 1rem; letter-spacing: 2px; }
+  .nav { gap: 10px; }
+  .nav .brand { font-size: 0.95rem; letter-spacing: 1.5px; }
+  .nav .btn { padding: 6px 12px; font-size: 0.82rem; }
+  .nav .lang button { padding: 6px 9px; }
   .nav .hide-s { display: none; }
   .nav .show-s { display: inline; }
   .nav a.link { font-size: 0.72rem; letter-spacing: 1px; }
