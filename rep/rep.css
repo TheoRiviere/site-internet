@@ -1,0 +1,80 @@
+/* Rep's legal pages: the dark green palette of the app (frontend/src/UI/colors.ts in PetitPois). */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #092328;
+  color: #eaf4ec;
+  line-height: 1.7;
+  padding: 40px 16px;
+}
+.container { max-width: 720px; margin: 0 auto; }
+.app-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #eaf4ec;
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+}
+.app-name:hover { text-decoration: none; }
+.app-name img { width: 36px; height: 36px; border-radius: 9px; display: block; }
+h1 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #eaf4ec;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+.subtitle {
+  color: #5e7a76;
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+}
+h2 {
+  font-size: 1.1rem;
+  color: #eaf4ec;
+  margin-top: 36px;
+  margin-bottom: 10px;
+  border-left: 3px solid #7fe0a8;
+  padding-left: 12px;
+}
+p { margin-bottom: 12px; color: #b9cdc8; }
+ol, ul { margin: 0 0 12px 20px; color: #b9cdc8; }
+li { margin-bottom: 6px; }
+strong { color: #eaf4ec; }
+a { color: #7fe0a8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  font-size: 0.92rem;
+}
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #1d4046;
+  color: #b9cdc8;
+  vertical-align: top;
+}
+th { color: #eaf4ec; font-weight: 600; }
+.table-wrap { overflow-x: auto; }
+.callout {
+  border: 1px solid #1d4046;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  background: #0f3036;
+}
+.lang-divider {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid #1d4046;
+}
+footer {
+  margin-top: 60px;
+  font-size: 0.8rem;
+  color: #5e7a76;
+  text-align: center;
+}
+footer p { margin-bottom: 8px; color: #5e7a76; }
