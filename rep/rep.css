@@ -66,11 +66,23 @@ th { color: #eaf4ec; font-weight: 600; }
   margin-bottom: 12px;
   background: #0f3036;
 }
-.lang-divider {
-  margin-top: 64px;
-  padding-top: 40px;
-  border-top: 1px solid #1d4046;
+.prevails { margin-top: 36px; font-size: 0.85rem; font-style: italic; color: #5e7a76; }
+
+/* Language choice (see ../lang.js). */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 32px; }
+.top .app-name { margin-bottom: 0; }
+.lang { display: inline-flex; border: 1px solid #1d4046; border-radius: 999px; overflow: hidden; }
+.lang button {
+  background: transparent; border: 0; cursor: pointer;
+  color: #8fa9a3; font-family: inherit; font-weight: 700; font-size: 0.78rem; letter-spacing: 1px; padding: 7px 13px;
 }
+.lang button[aria-pressed="true"] { background: #12544f; color: #7fe0a8; }
+html[data-lang="fr"] [data-l="en"],
+html[data-lang="en"] [data-l="fr"] { display: none !important; }
+/* Without the script: both texts follow each other, the rest of the page stays in French. */
+html:not([data-lang]) .lang,
+html:not([data-lang]) [data-l="en"]:not(section) { display: none !important; }
+html:not([data-lang]) section[data-l="en"] { margin-top: 64px; padding-top: 40px; border-top: 1px solid #1d4046; }
 footer {
   margin-top: 60px;
   font-size: 0.8rem;

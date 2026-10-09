@@ -7,7 +7,7 @@ Le site de `nightgame.fr` est fait de fichiers statiques, servis par nginx depui
 Sur le PC, dans `site-internet/` :
 
 ```powershell
-scp -r index.html cgu.html confidentialite.html suppression-compte.html images rep ubuntu@137.74.113.240:~/site-nightgame/
+scp -r index.html applications.html cgu.html confidentialite.html suppression-compte.html site.css site.js lang.js fonts images rep ubuntu@137.74.113.240:~/site-nightgame/
 ```
 
 Mot de passe : le même que d'hab.
@@ -26,9 +26,11 @@ rm -rf ~/site-nightgame
 
 Dans le navigateur, en navigation privée pour ne pas tomber sur le cache :
 
-- https://nightgame.fr : l'accueil avec Crime Night et Rep', les yeux qui clignent
-- https://nightgame.fr/cgu.html, https://nightgame.fr/confidentialite.html, https://nightgame.fr/suppression-compte.html : les pages de Crime Night, inchangées
-- https://nightgame.fr/rep/confidentialite.html et https://nightgame.fr/rep/suppression-compte.html : les pages de Rep'
+- https://nightgame.fr : l'accueil de Crime Night, les yeux qui clignent, les boutons des stores, les deux carrousels
+- https://nightgame.fr/applications.html : les cartes de Crime Night et de Rep'
+- https://nightgame.fr/cgu.html, https://nightgame.fr/confidentialite.html, https://nightgame.fr/suppression-compte.html : les pages de Crime Night, en français
+- https://nightgame.fr/cgu.html?lang=en : la même page en anglais, et le bouton FR/EN qui passe de l'une à l'autre
+- https://nightgame.fr/rep/confidentialite.html et https://nightgame.fr/rep/suppression-compte.html : les pages de Rep', avec leur bouton FR/EN
 - Dans Rep', Réglages › « Politique de confidentialité » ouvre la bonne page
 
 ## Revenir en arrière

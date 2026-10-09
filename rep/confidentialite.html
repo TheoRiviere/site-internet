@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-title-en="Privacy Policy – Rep'">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Politique de confidentialité – Rep'</title>
   <link rel="icon" href="../images/rep.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="rep.css" />
+  <script src="../lang.js"></script>
 </head>
 <body>
   <div class="container">
 
-    <a class="app-name" href="../index.html"><img src="../images/rep.svg" alt="" /> Rep'</a>
+    <div class="top">
+      <a class="app-name" href="../applications.html"><img src="../images/rep.svg" alt="" /> Rep'</a>
+      <div class="lang" role="group" aria-label="Langue / Language"><button type="button" data-set-lang="fr">FR</button><button type="button" data-set-lang="en">EN</button></div>
+    </div>
+
+    <section data-l="fr" lang="fr">
 
     <h1>Politique de confidentialité</h1>
     <p class="subtitle">Rep' — Dernière mise à jour : octobre 2026</p>
@@ -69,8 +75,9 @@
 
     <h2>11. Contact</h2>
     <p><a href="mailto:crimenight.no.reply@gmail.com?subject=Rep'">crimenight.no.reply@gmail.com</a></p>
+    </section>
 
-    <div class="lang-divider" lang="en">
+    <section data-l="en" lang="en">
       <h1>Privacy Policy</h1>
       <p class="subtitle">Rep' — Last updated: October 2026</p>
 
@@ -114,7 +121,7 @@
 
       <h2>7. Your rights</h2>
       <p>Under the GDPR you have the right to access, rectify, erase, port, restrict and object to the processing of your data.</p>
-      <p>Most of these can be exercised directly in the app: your workouts and exercises can be edited freely, your nickname and language are changed in the Settings, and <a href="suppression-compte.html">deleting your account</a> takes one action. For anything else, write to <a href="mailto:crimenight.no.reply@gmail.com?subject=Rep'">crimenight.no.reply@gmail.com</a>, mentioning Rep'; we reply within 30 days at most.</p>
+      <p>Most of these can be exercised directly in the app: your workouts and exercises can be edited freely, your nickname and language are changed in the Settings, and <a href="suppression-compte.html?lang=en">deleting your account</a> takes one action. For anything else, write to <a href="mailto:crimenight.no.reply@gmail.com?subject=Rep'">crimenight.no.reply@gmail.com</a>, mentioning Rep'; we reply within 30 days at most.</p>
       <p>You may also lodge a complaint with the French data protection authority, the CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).</p>
 
       <h2>8. Children</h2>
@@ -128,10 +135,13 @@
 
       <h2>11. Contact</h2>
       <p><a href="mailto:crimenight.no.reply@gmail.com?subject=Rep'">crimenight.no.reply@gmail.com</a></p>
-    </div>
+
+      <p class="prevails">This English version is provided for convenience. In case of any discrepancy, the French version prevails.</p>
+    </section>
 
     <footer>
-      <p><a href="../index.html">Accueil</a> · <a href="suppression-compte.html">Suppression de compte</a></p>
+      <p data-l="fr"><a href="../applications.html">Toutes nos applications</a> · <a href="suppression-compte.html">Suppression de compte</a></p>
+      <p data-l="en"><a href="../applications.html">All our apps</a> · <a href="suppression-compte.html?lang=en">Account deletion</a></p>
       © 2026 Rep' – Théo Rivière
     </footer>
   </div>

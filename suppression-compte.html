@@ -1,65 +1,23 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-title-en="Account deletion – Crime Night">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Suppression de compte – Crime Night</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0f1923;
-      color: #e0e0e0;
-      line-height: 1.7;
-      padding: 40px 20px;
-    }
-    .container { max-width: 720px; margin: 0 auto; }
-    h1 {
-      font-size: 2rem;
-      color: #e8342a;
-      margin-bottom: 8px;
-    }
-    .subtitle {
-      color: #888;
-      font-size: 0.9rem;
-      margin-bottom: 40px;
-    }
-    h2 {
-      font-size: 1.1rem;
-      color: #ffffff;
-      margin-top: 36px;
-      margin-bottom: 10px;
-      border-left: 3px solid #e8342a;
-      padding-left: 12px;
-    }
-    p { margin-bottom: 12px; color: #c0c0c0; }
-    ol, ul { margin: 0 0 12px 20px; color: #c0c0c0; }
-    li { margin-bottom: 6px; }
-    a { color: #e8342a; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .callout {
-      border: 1px solid #2a3b4d;
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin-bottom: 12px;
-      background: #131f2b;
-    }
-    .lang-divider {
-      margin-top: 64px;
-      padding-top: 40px;
-      border-top: 1px solid #2a3b4d;
-    }
-    footer {
-      margin-top: 60px;
-      font-size: 0.8rem;
-      color: #555;
-      text-align: center;
-    }
-  </style>
+  <link rel="icon" href="images/crime-night-icon.png" type="image/png" />
+  <link rel="stylesheet" href="site.css" />
+  <script src="lang.js"></script>
 </head>
 <body>
-  <div class="container">
 
+  <header class="nav">
+    <a class="brand" href="index.html">Night Game</a>
+    <a class="link" href="applications.html"><span class="hide-s"><span data-l="fr">Toutes nos applications</span><span data-l="en">All our apps</span></span><span class="show-s"><span data-l="fr">Applis</span><span data-l="en">Apps</span></span></a>
+    <div class="lang" role="group" aria-label="Langue / Language"><button type="button" data-set-lang="fr">FR</button><button type="button" data-set-lang="en">EN</button></div>
+  </header>
+
+  <main class="legal-page">
+    <section data-l="fr" lang="fr">
     <h1>Suppression de compte</h1>
     <p class="subtitle">Crime Night — Théo Rivière, développeur indépendant</p>
 
@@ -104,8 +62,9 @@
     <h2>Contact</h2>
     <p><a href="mailto:crimenight.no.reply@gmail.com">crimenight.no.reply@gmail.com</a></p>
     <p>Voir aussi les <a href="cgu.html">Conditions Générales d'Utilisation</a>.</p>
+    </section>
 
-    <div class="lang-divider">
+    <section data-l="en" lang="en">
       <h1>Account deletion</h1>
       <p class="subtitle">Crime Night — Théo Rivière, independent developer</p>
 
@@ -145,12 +104,23 @@
 
       <h2>Contact</h2>
       <p><a href="mailto:crimenight.no.reply@gmail.com">crimenight.no.reply@gmail.com</a></p>
-    </div>
 
-    <footer>
-      <p style="margin-bottom:8px; color:#555"><a href="index.html">Accueil</a> · <a href="cgu.html">Conditions d'utilisation</a> · <a href="confidentialite.html">Politique de confidentialité</a></p>
-      © 2026 Crime Night – Théo Rivière
-    </footer>
-  </div>
+      <p class="prevails">This English version is provided for convenience. In case of any discrepancy, the French version prevails.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Crime Night – Théo Rivière · <a href="mailto:crimenight.no.reply@gmail.com">crimenight.no.reply@gmail.com</a></span>
+    <nav data-l="fr" aria-label="Informations légales">
+      <a href="cgu.html">Conditions d'utilisation</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="suppression-compte.html">Suppression de compte</a>
+    </nav>
+    <nav data-l="en" aria-label="Legal information">
+      <a href="cgu.html?lang=en">Terms of Use</a>
+      <a href="confidentialite.html?lang=en">Privacy Policy</a>
+      <a href="suppression-compte.html?lang=en">Account deletion</a>
+    </nav>
+  </footer>
 </body>
 </html>

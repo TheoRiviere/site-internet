@@ -3,335 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Night Game – Crime Night et Rep'</title>
-  <meta name="description" content="Crime Night, le jeu de l'assassin entre amis, et Rep', le carnet de musculation de la semaine. Deux applis mobiles de Théo Rivière." />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0b1015;
-      color: #e0e0e0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 56px 16px 40px;
-      overflow-x: hidden;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-    .brand {
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #6b7682;
-      margin-bottom: 12px;
-    }
-    header h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: #ffffff;
-      line-height: 1.2;
-    }
-    header p {
-      margin-top: 12px;
-      font-size: 1.05rem;
-      color: #8a949e;
-      line-height: 1.6;
-    }
-
-    .apps {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-      width: 100%;
-      max-width: 1000px;
-    }
-    @media (max-width: 760px) {
-      .apps { grid-template-columns: 1fr; }
-    }
-
-    .app {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      border-radius: 24px;
-      padding: 36px 24px 28px;
-      border: 1px solid;
-    }
-    .app h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-    .app .pitch {
-      font-size: 1rem;
-      line-height: 1.6;
-      max-width: 380px;
-      margin-bottom: 24px;
-    }
-
-    .features {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      width: 100%;
-      max-width: 400px;
-      margin-bottom: 28px;
-      text-align: left;
-    }
-    .feature {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      border-radius: 16px;
-      padding: 14px;
-    }
-    .feature-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-    .feature-desc {
-      font-size: 0.86rem;
-      line-height: 1.5;
-    }
-
-    .badges {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: auto;
-      margin-bottom: 20px;
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border-radius: 12px;
-      padding: 11px 18px;
-      text-decoration: none;
-      color: #ffffff;
-      font-size: 0.95rem;
-      font-weight: 600;
-      border: 1px solid;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .badge img { display: block; }
-    .soon {
-      font-size: 0.85rem;
-      margin-bottom: 20px;
-      margin-top: auto;
-    }
-
-    .legal {
-      display: flex;
-      gap: 6px 16px;
-      flex-wrap: wrap;
-      justify-content: center;
-      font-size: 0.8rem;
-    }
-    .legal a { text-decoration: none; }
-    .legal a:hover { text-decoration: underline; }
-
-    /* Crime Night: night blue and blood red, as in the app. */
-    .crime-night { background: #0f1923; border-color: #2a3a4a; }
-    .crime-night h2 { color: #e8342a; text-transform: uppercase; letter-spacing: 2px; }
-    .crime-night .pitch { color: #c0c0c0; }
-    .crime-night .feature { background: #1a2533; border: 1px solid #2a3a4a; }
-    .crime-night .feature img { width: 64px; height: 64px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
-    .crime-night .feature-title { color: #ffffff; text-transform: uppercase; letter-spacing: 1px; }
-    .crime-night .feature-desc { color: #888888; }
-    .crime-night .badge { background: #1a2533; border-color: #2a3a4a; }
-    .crime-night .badge:hover { background: #243040; border-color: #e8342a; }
-    .crime-night .legal a { color: #8a8f96; }
-    .crime-night .legal a:hover { color: #e8342a; }
-    .eyes { cursor: pointer; margin-bottom: 20px; }
-    .eyes img { width: 180px; height: auto; display: block; }
-    .discord {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #7289da;
-      text-decoration: none;
-      font-size: 0.9rem;
-      opacity: 0.85;
-      margin-bottom: 20px;
-    }
-    .discord:hover { opacity: 1; }
-
-    /* Rep': night teal and greens, as in the app. */
-    .rep { background: #092328; border-color: #1d4046; }
-    .rep .logo { width: 104px; height: 104px; border-radius: 24px; margin-bottom: 20px; display: block; }
-    .rep h2 { color: #eaf4ec; font-weight: 300; font-size: 2.4rem; }
-    .rep .pitch { color: #8fa9a3; }
-    .rep .feature { background: #0f3036; border: 1px solid #1d4046; }
-    .rep .feature-icon {
-      width: 44px; height: 44px; border-radius: 22px; flex-shrink: 0;
-      background: #12544f; color: #7fe0a8;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 1.1rem;
-    }
-    .rep .feature-title { color: #eaf4ec; }
-    .rep .feature-desc { color: #8fa9a3; }
-    .rep .soon { color: #8bbb92; }
-    .rep .legal a { color: #8fa9a3; }
-    .rep .legal a:hover { color: #7fe0a8; }
-
-    footer {
-      margin-top: 48px;
-      font-size: 0.8rem;
-      color: #4e5862;
-      text-align: center;
-      line-height: 1.8;
-    }
-    footer a { color: #6b7682; text-decoration: none; }
-    footer a:hover { color: #ffffff; }
-  </style>
+  <title>Crime Night – Night Game</title>
+  <meta name="description" content="Crime Night, le jeu d'ambiance entre amis : missions secrètes et éliminations en temps réel. Disponible sur l'App Store et Google Play." />
+  <link rel="icon" href="images/crime-night-icon.png" type="image/png" />
+  <link rel="stylesheet" href="site.css" />
 </head>
-<body>
+<body id="top">
 
-  <header>
-    <p class="brand">Night Game</p>
-    <h1>Deux applis mobiles</h1>
-    <p>Une pour jouer entre amis, une pour s'entraîner.</p>
+  <header class="nav">
+    <a class="brand" href="index.html">Night Game</a>
+    <a class="link" href="applications.html"><span class="hide-s">Toutes nos applications</span><span class="show-s">Applis</span></a>
+    <a class="btn" href="https://discord.gg/NKzgm3md3F" target="_blank" rel="noopener">Discord</a>
   </header>
 
-  <main class="apps">
+  <main>
 
-    <section class="app crime-night" aria-labelledby="crime-night-title">
-      <div class="eyes" id="eyesWrap">
-        <img id="eyes" src="images/crime-night-eyes-0.png" alt="Les yeux de Crime Night" />
-      </div>
-      <h2 id="crime-night-title">Crime Night</h2>
-      <p class="pitch">
-        Un jeu mobile qui se joue ensemble.<br>
-        Élimine tes cibles tout en évitant les pièges de tes amis.
-      </p>
-
-      <div class="features">
-        <div class="feature">
-          <img src="images/crime-night-survivant.png" alt="" />
-          <div>
-            <h3 class="feature-title">Survivant</h3>
-            <p class="feature-desc">Reste en vie le plus longtemps possible. Chaque joueur est à la fois chasseur et proie.</p>
-          </div>
-        </div>
-        <div class="feature">
-          <img src="images/crime-night-chasse.png" alt="" />
-          <div>
-            <h3 class="feature-title">Chasse aux kills</h3>
-            <p class="feature-desc">Élimine le plus de cibles possible avant la fin de la nuit. Le meilleur chasseur l'emporte.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="badges">
-        <a class="badge" href="#" id="crime-night-appstore">
-          <img src="https://cdn.simpleicons.org/apple/ffffff" width="20" height="20" alt="" />
-          App Store
+    <!-- Ouverture -->
+    <section class="screen hero hero-a">
+      <img class="eyes" src="images/crime-night-eyes-0.png" alt="Les yeux de Crime Night" />
+      <h1 class="wordmark">Crime Night</h1>
+      <p class="tagline">Personne n'est innocent</p>
+      <p class="pitch">Le jeu d'ambiance entre amis :<br> missions secrètes et éliminations en temps réel, qui sera le plus rusé ?</p>
+      <div class="stores">
+        <a class="btn big" href="https://apps.apple.com/fr/app/crime-night/id6790823280" target="_blank" rel="noopener">
+          <img src="images/icones/apple.svg" alt="" /> App Store
         </a>
-        <a class="badge" href="#" id="crime-night-playstore">
-          <img src="https://cdn.simpleicons.org/googleplay/ffffff" width="20" height="20" alt="" />
-          Google Play
+        <a class="btn big ghost" href="https://play.google.com/store/apps/details?id=com.theoriviere.frontend&hl=fr" target="_blank" rel="noopener">
+          <img src="images/icones/googleplay.svg" alt="" /> Google Play
         </a>
       </div>
-
-      <a class="discord" href="https://discord.gg/NKzgm3md3F" target="_blank" rel="noopener">
-        <img src="https://cdn.simpleicons.org/discord/5865F2" width="18" height="18" alt="" style="display:block" />
-        Rejoindre le Discord
-      </a>
-
-      <nav class="legal" aria-label="Crime Night : informations légales">
-        <a href="cgu.html">Conditions d'utilisation</a>
-        <a href="confidentialite.html">Confidentialité</a>
-        <a href="suppression-compte.html">Suppression de compte</a>
-      </nav>
     </section>
 
-    <section class="app rep" aria-labelledby="rep-title">
-      <img class="logo" src="images/rep.svg" alt="Logo de Rep'" />
-      <h2 id="rep-title">Rep'</h2>
-      <p class="pitch">
-        Ton carnet de musculation de la semaine.<br>
-        Une séance par jour, prête à être enchaînée à la salle.
-      </p>
+    <!-- Comment on joue -->
+    <section class="screen alt carousel" id="regles">
+      <h2 class="giant reveal">Comment<br>on <em>joue</em></h2>
+      <div class="slides reveal d1">
 
-      <div class="features">
-        <div class="feature">
-          <div class="feature-icon" aria-hidden="true">7</div>
+        <article class="slide rule">
+          <img class="art" src="images/regles/cible.png" alt="" />
           <div>
-            <h3 class="feature-title">Une séance par jour</h3>
-            <p class="feature-desc">Prépare chaque jour de la semaine : les exercices, leur poids et ton objectif. Un jour sans séance est un jour de repos.</p>
+            <h3>Le principe</h3>
+            <p class="lead">Tu reçois une cible et une mission… mais tu es aussi la cible de quelqu'un d'autre !</p>
+            <div class="chain"><span>Chasseur</span><i>→</i><span class="you">Toi</span><i>→</i><span>Chassé</span></div>
+            <div class="note"><small>Objectif</small>Élimine discrètement tes cibles avant d'être éliminé toi-même.</div>
+          </div>
+        </article>
+
+        <article class="slide rule">
+          <img class="art" src="images/regles/notepaper.png" alt="" />
+          <div>
+            <h3>Ta mission</h3>
+            <p class="lead">Tu reçois une cible et un objectif secrets. Accomplis l'objectif sans être soupçonné pour valider le kill.</p>
+            <div class="note"><small>Exemple d'objectif</small>« Fais rire ta cible avec un mime »</div>
+            <div class="note"><small>À savoir</small>Relancer ta mission secrète change l'objectif, mais ta cible reste la même.</div>
+          </div>
+        </article>
+
+        <article class="slide rule">
+          <img class="art" src="images/regles/bulb.png" alt="" />
+          <div>
+            <h3>Revendiquer un kill</h3>
+            <p class="lead">Mission accomplie ?</p>
+            <ul class="steps">
+              <li data-mark="1">Appuie sur « J'ai tué ma cible ».</li>
+              <li class="ok" data-mark="✓">Si la personne confirme, ton kill est validé.</li>
+              <li class="ko" data-mark="✕">Si elle refuse, il va falloir redoubler d'inventivité pour l'éliminer.</li>
+            </ul>
+            <div class="note"><small>À savoir</small>Sans réponse après 10 minutes, le kill est validé directement.</div>
+          </div>
+        </article>
+
+      </div>
+      <div class="controls reveal d2">
+        <button class="arrow prev" aria-label="Règle précédente">←</button>
+        <span class="counter"></span>
+        <button class="arrow next" aria-label="Règle suivante">→</button>
+      </div>
+    </section>
+
+    <!-- Les deux modes -->
+    <section class="screen" id="modes">
+      <div class="modes-head reveal">
+        <img src="images/regles/console.png" alt="" />
+        <h2 class="giant">Deux modes<br>pour <em>s'affronter</em></h2>
+      </div>
+      <div class="modes reveal d1">
+        <article class="mode">
+          <img src="images/crime-night-survivant.png" alt="" />
+          <div>
+            <span class="num">01</span>
+            <h3>Survivant</h3>
+            <p>Les joueurs s'entretuent. Le dernier en vie gagne.</p>
+          </div>
+        </article>
+        <article class="mode">
+          <img src="images/crime-night-chasse.png" alt="" />
+          <div>
+            <span class="num">02</span>
+            <h3>Chasse aux kills</h3>
+            <p>Chaque cible éliminée rapporte un point. Le joueur qui en a le plus gagne.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Captures d'écran -->
+    <section class="screen alt carousel" id="captures">
+      <div class="shots">
+        <div class="reveal">
+          <h2 class="giant">Dans<br>l'<em>appli</em></h2>
+          <p>Crée un salon, invite tes amis, choisis le mode et la durée.<br> La partie se joue dans la vraie vie, cache ta mission à tes amis.</p>
+          <div class="controls">
+            <button class="arrow prev" aria-label="Capture précédente">←</button>
+            <span class="counter"></span>
+            <button class="arrow next" aria-label="Capture suivante">→</button>
           </div>
         </div>
-        <div class="feature">
-          <div class="feature-icon" aria-hidden="true">▶</div>
-          <div>
-            <h3 class="feature-title">Le jour J</h3>
-            <p class="feature-desc">Démarre la séance du jour et enchaîne les exercices, avec le chrono toujours en haut de l'écran pour tes temps de repos.</p>
+        <div class="phone-col reveal d1">
+          <div class="phone">
+            <div class="slides">
+              <div class="slide"><img src="images/captures/capture1.png" alt="Écran d'accueil de Crime Night" /></div>
+              <div class="slide"><img src="images/captures/capture2.png" alt="Capture de Crime Night" loading="lazy" /></div>
+              <div class="slide"><img src="images/captures/capture3.png" alt="Création d'un salon dans Crime Night" loading="lazy" /></div>
+              <div class="slide"><img src="images/captures/capture4.png" alt="Capture de Crime Night" loading="lazy" /></div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <p class="soon">Bientôt sur l'App Store et Google Play</p>
-
-      <nav class="legal" aria-label="Rep' : informations légales">
-        <a href="rep/confidentialite.html">Confidentialité</a>
-        <a href="rep/suppression-compte.html">Suppression de compte</a>
-      </nav>
+    <!-- Discord -->
+    <section class="screen discord" id="discord">
+      <h2 class="giant reveal">Un problème<br>ou une <em>idée</em> ?</h2>
+      <p class="reveal d1">Rejoins le Discord pour proposer des missions, signaler un bug ou trouver des joueurs.</p>
+      <a class="btn big discord-btn reveal d2" href="https://discord.gg/NKzgm3md3F" target="_blank" rel="noopener">
+        <img src="images/icones/discord.svg" width="22" height="22" alt="" /> Rejoindre le Discord
+      </a>
     </section>
 
   </main>
 
   <footer>
-    © 2026 Théo Rivière, développeur indépendant<br>
-    <a href="mailto:crimenight.no.reply@gmail.com">crimenight.no.reply@gmail.com</a>
+    <span>© 2026 Théo Rivière, développeur indépendant · <a href="mailto:crimenight.no.reply@gmail.com">crimenight.no.reply@gmail.com</a></span>
+    <nav aria-label="Informations légales">
+      <a href="cgu.html">Conditions d'utilisation</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="suppression-compte.html">Suppression de compte</a>
+    </nav>
   </footer>
 
-  <script>
-    const FRAMES = [
-      'images/crime-night-eyes-0.png',
-      'images/crime-night-eyes-1.png',
-      'images/crime-night-eyes-2.png'
-    ];
-    const SEQUENCE = [0, 1, 2, 1, 0];
-    const TIMING   = [0, 60, 80, 60, 90];
-
-    // Loaded ahead, so the first blink doesn't wait for the network.
-    FRAMES.forEach((src) => { new Image().src = src; });
-
-    const img = document.getElementById('eyes');
-    let blinking = false;
-    let nextBlink;
-
-    function playBlink(scheduleNext) {
-      if (blinking) return;
-      blinking = true;
-      clearTimeout(nextBlink);
-      let step = 0;
-      function tick() {
-        if (step >= SEQUENCE.length) {
-          blinking = false;
-          if (scheduleNext) nextBlink = setTimeout(() => playBlink(true), 8000 + Math.random() * 6000);
-          return;
-        }
-        img.src = FRAMES[SEQUENCE[step]];
-        setTimeout(tick, TIMING[step]);
-        step++;
-      }
-      tick();
-    }
-
-    setTimeout(() => playBlink(true), 1600);
-    document.getElementById('eyesWrap').addEventListener('click', () => playBlink(false));
-  </script>
-
+  <script src="site.js"></script>
 </body>
 </html>
