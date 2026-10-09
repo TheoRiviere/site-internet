@@ -18,9 +18,6 @@
   --text: #e0e0e0;
   --muted: #8a949e;
   --nav-h: 64px;
-  /* Trame de petits points plus foncés que le fond. */
-  --dots: radial-gradient(circle, rgba(0, 0, 0, 0.8) 1.3px, transparent 1.9px);
-  --dots-size: 22px 22px;
   --title: "Lilita One", "Segoe UI", sans-serif;
   --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
@@ -29,7 +26,7 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--body);
-  background: var(--dots) 0 0 / var(--dots-size) var(--night);
+  background: var(--night);
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
@@ -84,21 +81,14 @@ a { color: inherit; }
   .nav a.link { font-size: 0.72rem; letter-spacing: 1px; }
 }
 
-@media (max-width: 400px) {
-  .nav { gap: 8px; padding: 0 12px; }
-  .nav .brand { font-size: 0.85rem; letter-spacing: 1px; }
-  .nav .lang button { padding: 6px 7px; }
-}
-
 /* ── Sections plein écran ──────────────────────────────────── */
 .screen {
   min-height: 100vh; min-height: 100svh;
   padding: calc(var(--nav-h) + 48px) clamp(20px, 6vw, 96px) 72px;
   display: flex; flex-direction: column; justify-content: center;
   position: relative;
-  overflow-x: clip;
 }
-.screen.alt { background: var(--dots) 0 0 / var(--dots-size) var(--panel); }
+.screen.alt { background: var(--panel); }
 .giant {
   font-family: var(--title); font-weight: 400;
   font-size: clamp(2.6rem, 9vw, 7.5rem);
@@ -147,8 +137,7 @@ a { color: inherit; }
 .carousel .slides { display: grid; }
 .carousel .slide {
   grid-area: 1 / 1;
-  /* Décalage vertical : un décalage horizontal élargit la page sur téléphone. */
-  opacity: 0; visibility: hidden; transform: translateY(24px);
+  opacity: 0; visibility: hidden; transform: translateX(40px);
   transition: opacity 0.45s ease, transform 0.45s ease, visibility 0s 0.45s;
 }
 .carousel .slide.on { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
