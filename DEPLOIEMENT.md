@@ -7,6 +7,7 @@ Le site de `nightgame.fr` est fait de fichiers statiques, servis par nginx depui
 Sur le PC, dans `site-internet/` :
 
 ```powershell
+ssh ubuntu@137.74.113.240 "mkdir -p ~/site-nightgame"
 scp -r index.html applications.html cgu.html confidentialite.html suppression-compte.html site.css site.js lang.js fonts images rep ubuntu@137.74.113.240:~/site-nightgame/
 ```
 
