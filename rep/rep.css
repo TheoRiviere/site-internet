@@ -69,8 +69,55 @@ th { color: #eaf4ec; font-weight: 600; }
 .prevails { margin-top: 36px; font-size: 0.85rem; font-style: italic; color: #5e7a76; }
 
 /* Language choice (see ../lang.js). */
-.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 32px; }
-.top .app-name { margin-bottom: 0; }
+/* Top bar: same layout as the rest of the site (see ../site.css), in Rep's colours. */
+@font-face {
+  font-family: "Lilita One";
+  src: url("../fonts/LilitaOne-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+body { padding-top: 104px; }
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  height: 64px;
+  display: flex; align-items: center; gap: 28px;
+  padding: 0 clamp(16px, 4vw, 48px);
+  background: rgba(9, 35, 40, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1d4046;
+}
+.nav .brand {
+  font-family: "Lilita One", "Segoe UI", sans-serif;
+  font-size: 1.15rem; letter-spacing: 3px; text-transform: uppercase;
+  color: #eaf4ec; margin-right: auto; white-space: nowrap;
+}
+.nav a.link {
+  color: #8fa9a3;
+  font-size: 0.82rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+}
+.nav a:hover { text-decoration: none; color: #eaf4ec; }
+.nav .btn {
+  font-family: "Lilita One", "Segoe UI", sans-serif;
+  font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;
+  color: #092328; background: #7fe0a8; border-radius: 12px; padding: 9px 16px;
+  transition: transform 0.15s;
+}
+.nav .btn:hover { color: #092328; transform: translateY(-2px); }
+.nav .show-s { display: none; }
+@media (max-width: 720px) {
+  .nav { gap: 12px; }
+  .nav .brand { font-size: 0.95rem; letter-spacing: 1.5px; }
+  .nav a.link { font-size: 0.72rem; letter-spacing: 1px; }
+  .nav .hide-s { display: none; }
+  .nav .show-s { display: inline; }
+  .nav { gap: 10px; }
+  .nav .btn { padding: 7px 12px; font-size: 0.82rem; }
+  .nav .lang button { padding: 6px 9px; }
+}
+@media (max-width: 400px) {
+  .nav { gap: 8px; padding: 0 12px; }
+  .nav .brand { font-size: 0.85rem; letter-spacing: 1px; }
+  .nav .lang button { padding: 6px 7px; }
+}
 .lang { display: inline-flex; border: 1px solid #1d4046; border-radius: 999px; overflow: hidden; }
 .lang button {
   background: transparent; border: 0; cursor: pointer;

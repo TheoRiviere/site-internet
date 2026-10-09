@@ -122,7 +122,12 @@ a { color: inherit; }
 .eyes { cursor: pointer; }
 
 .hero-a { align-items: center; text-align: center; }
-.hero-a .eyes { width: min(64vw, 420px); margin-bottom: 28px; }
+.hero-a .eyes { width: min(64vw, 420px); height: auto; display: block; margin-bottom: 28px; }
+.eyes .lids { transform-box: view-box; transform-origin: 400px 150px; }
+.eyes.blink .lids { animation: blink 0.26s ease-in-out; }
+@keyframes blink {
+  45%, 55% { transform: scaleY(0.05); }
+}
 .hero-a .wordmark { font-size: clamp(3rem, 11vw, 7rem); line-height: 1; letter-spacing: 2px; }
 .hero-a .tagline { font-size: clamp(1.1rem, 2.6vw, 1.7rem); margin: 6px 0 22px; }
 .hero-a .pitch { max-width: 680px; color: #c0c6cc; font-size: 1.08rem; margin-bottom: 32px; }
@@ -275,13 +280,17 @@ footer a:hover { color: #fff; }
 .app .legal a { text-decoration: none; }
 .app .legal a:hover { text-decoration: underline; }
 .app.cn { background: var(--panel); border-color: var(--line); }
-.app.cn h2 { font-family: "Nougat", var(--title); font-size: clamp(1.7rem, 7.6vw, 2.6rem); white-space: nowrap; color: #fff; }
+.app.cn h2 { font-family: var(--title); font-size: clamp(1.7rem, 7.6vw, 2.6rem); white-space: nowrap; color: #fff; }
 .app.cn p { color: #c0c6cc; }
 .app.cn .legal a { color: var(--muted); }
 .app.rep { background: #092328; border-color: #1d4046; }
-.app.rep h2 { font-family: var(--body); font-weight: 300; font-size: 2.6rem; color: #eaf4ec; }
+.app.rep h2 { font-family: var(--title); font-size: clamp(1.7rem, 7.6vw, 2.6rem); color: #eaf4ec; }
 .app.rep p { color: #8fa9a3; }
-.app.rep .soon { color: #8bbb92; font-size: 0.9rem; border: 1px solid #1d4046; border-radius: 12px; padding: 10px 16px; }
+/* Même allure que les boutons de la carte Crime Night, sans être cliquable. */
+.app.rep .soon {
+  font-family: var(--title); font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;
+  color: #8bbb92; border: 2px solid #1d4046; border-radius: 12px; padding: 10px 20px;
+}
 .app.rep .legal a { color: #8fa9a3; }
 
 /* ── Pages légales de Crime Night ──────────────────────────── */

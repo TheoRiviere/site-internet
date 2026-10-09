@@ -9,15 +9,9 @@ Le déploiement se fait en trois temps : envoyer les fichiers dans un dossier d'
 Sur le PC, dans `site-internet/`, sur la branche `main` à jour :
 
 ```powershell
-git checkout main
-git pull
-git status
-```
-
-`git status` doit répondre qu'il n'y a rien à commiter : ce qui part en ligne est alors exactement ce qui est sur GitHub.
-
-```powershell
 ssh ubuntu@137.74.113.240 "rm -rf ~/site-nightgame && mkdir ~/site-nightgame"
+```
+```powershell
 scp -r index.html applications.html cgu.html confidentialite.html suppression-compte.html site.css site.js lang.js fonts images rep ubuntu@137.74.113.240:~/site-nightgame/
 ```
 

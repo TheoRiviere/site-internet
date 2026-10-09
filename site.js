@@ -1,33 +1,45 @@
 document.documentElement.classList.add('js');
 
-// ── Les yeux qui clignent (toutes les images .eyes de la page) ──
-const FRAMES = [0, 1, 2].map((n) => `images/crime-night-eyes-${n}.png`);
-const SEQUENCE = [0, 1, 2, 1, 0];
-const TIMING = [0, 60, 80, 60, 90];
-FRAMES.forEach((src) => { new Image().src = src; });
-
-document.querySelectorAll('img.eyes').forEach((img) => {
-  let blinking = false;
+// ── Les yeux : ils clignent, et les iris suivent le pointeur ──
+const eyes = document.querySelector('svg.eyes');
+if (eyes) {
+  // Clignement : de temps en temps, et au clic.
   let nextBlink;
-  function playBlink(scheduleNext) {
-    if (blinking) return;
-    blinking = true;
+  function blink(scheduleNext) {
     clearTimeout(nextBlink);
-    let step = 0;
-    (function tick() {
-      if (step >= SEQUENCE.length) {
-        blinking = false;
-        if (scheduleNext) nextBlink = setTimeout(() => playBlink(true), 5000 + Math.random() * 5000);
-        return;
-      }
-      img.src = FRAMES[SEQUENCE[step]];
-      setTimeout(tick, TIMING[step]);
-      step++;
-    })();
+    eyes.classList.remove('blink');
+    void eyes.getBoundingClientRect(); // relance l'animation si elle vient de jouer
+    eyes.classList.add('blink');
+    if (scheduleNext) nextBlink = setTimeout(() => blink(true), 5000 + Math.random() * 5000);
   }
-  setTimeout(() => playBlink(true), 1600);
-  img.addEventListener('click', () => playBlink(false));
-});
+  setTimeout(() => blink(true), 1600);
+  eyes.addEventListener('click', () => blink(true));
+
+  // Regard : chaque iris se déplace vers le pointeur, dans les unités du dessin (viewBox 800 × 300).
+  // L'œil droit est le gauche en miroir, donc son déplacement horizontal est inversé.
+  const pupils = [
+    { el: eyes.querySelector('#eye-l .pupil'), cx: 178, mirror: 1 },
+    { el: eyes.querySelector('#eye-r .pupil'), cx: 622, mirror: -1 },
+  ];
+  const REACH = 42;      // déplacement maximal de l'iris
+  const MAX_UP = -16;    // vers le haut, l'iris reste en partie sous la paupière
+  const FULL_AT = 320;   // distance du pointeur (px écran) à laquelle le regard est au maximum
+
+  document.addEventListener('pointermove', (e) => {
+    const box = eyes.getBoundingClientRect();
+    if (!box.width) return;
+    const scale = box.width / 800;
+    pupils.forEach((p) => {
+      const dx = e.clientX - (box.left + p.cx * scale);
+      const dy = e.clientY - (box.top + 140 * scale);
+      const dist = Math.hypot(dx, dy) || 1;
+      const amount = Math.min(1, dist / FULL_AT) * REACH;
+      const x = (dx / dist) * amount * p.mirror;
+      const y = Math.max(MAX_UP, (dy / dist) * amount);
+      p.el.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)})`);
+    });
+  });
+}
 
 // ── Apparition au défilement ──
 const observer = new IntersectionObserver((entries) => {

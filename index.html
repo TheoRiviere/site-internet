@@ -22,7 +22,24 @@
 
     <!-- Ouverture -->
     <section class="screen hero hero-a">
-      <img class="eyes" src="images/crime-night-eyes-0.png" alt="Crime Night" />
+      <!-- Les yeux : une forme blanche par œil, percée par l'iris (un masque), l'œil droit en miroir du gauche. -->
+      <svg class="eyes" viewBox="0 0 800 300" role="img" aria-label="Crime Night">
+        <defs>
+          <path id="eye-shape" d="M55 85 L303 170 C262 215 215 234 180 232 C110 228 45 170 50 100 C50 92 52 87 55 85 Z" />
+          <mask id="eye-l" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="300">
+            <use href="#eye-shape" fill="#fff" />
+            <circle class="pupil" cx="178" cy="141" r="50" fill="#000" />
+          </mask>
+          <mask id="eye-r" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="300">
+            <use href="#eye-shape" fill="#fff" />
+            <circle class="pupil" cx="178" cy="141" r="50" fill="#000" />
+          </mask>
+        </defs>
+        <g class="lids">
+          <rect width="400" height="300" fill="#fff" mask="url(#eye-l)" />
+          <g transform="translate(800 0) scale(-1 1)"><rect width="400" height="300" fill="#fff" mask="url(#eye-r)" /></g>
+        </g>
+      </svg>
       <h1 class="wordmark">Crime Night</h1>
       <p class="tagline" data-l="fr">Personne n'est innocent</p>
       <p class="tagline" data-l="en">No one is innocent</p>
